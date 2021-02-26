@@ -11,15 +11,6 @@ pipeline{
                 sh script: 'mvn clean package'
             }
         }
-        stage('post build'){
-            steps{
-               // junit 'springpetclinic-daybuilds/target/surefire-reports/*.xml'
-            
-               //archiveArtifacts 'springpetclinic-daybuilds/ws/target/*.jar'
-              
-
-               
-            }
-        }
+        
     }
 }
