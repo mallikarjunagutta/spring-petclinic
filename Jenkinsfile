@@ -3,18 +3,18 @@ pipeline{
     stages{
         stage('scm') {
             steps{
-                git 'https://github.com/spring-projects/spring-petclinic.git'
+                git branch: 'main', url:https://github.com/spring-projects/spring-petclinic.git'
             }
         }
         stage('build') {
             steps {
-                sh script: 'mvn compile'
+                sh script: 'mvn clean package'
             }
         }
         stage('post build'){
             steps{
                 junit 'springpetclinic-daybuilds/target/surefire-reports/*.xml'
-                //archiveArtifacts 'springpetclinic-daybuilds/target/*.jar'
+                archiveArtifacts 'springpetclinic-daybuilds/target/*.jar'
             }
         }
     }
