@@ -1,18 +1,21 @@
-node('ubuntunode2')
-{
-    stage('scm')
-    {
-        git 'https://github.com/mallikarjunagutta/spring-petclinic.git'
-    }
-
-    stage('build')
-    {
-        sh label: '', script: 'mvn clean package'
-    }
-
-    stage('postbuild')
-    {
-     junit 'springpetclinic-daybuild/target/surefire-reports/*.xml'
-     archiveArtifacts 'springpetclinic-daybuild/target/*.war'
+pipeline{
+    agent { label 'ubuntunode2'}
+    stages{
+        stage('scm') {
+            steps{
+                git 'https://github.com/spring-projects/spring-petclinic.git'
+            }
+        }
+        stage('build') {
+            steps {
+                sh script: 'mvn clean package'
+            }
+        }
+        stage('post build'){
+            steps{
+                junit 'springpetclinic-daybuilds/target/surefire-reports/*.xml'
+                archiveArtifacts 'springpetclinic-daybuilds/target/*.war'
+            }
+        }
     }
 }
