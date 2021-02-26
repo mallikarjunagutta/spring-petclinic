@@ -2,7 +2,7 @@ node('ubuntunode2')
 {
     stage('scm')
     {
-        git 'https://github.com/spring-projects/spring-petclinic.git'
+        git 'https://github.com/mallikarjunagutta/spring-petclinic.git'
     }
 
     stage('build')
