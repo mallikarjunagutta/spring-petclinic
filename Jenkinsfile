@@ -11,6 +11,12 @@ pipeline{
                 sh script: 'mvn clean package'
             }
         }
-        
+        stage('post build'){
+            steps{
+               // junit 'springpetclinic-daybuilds/target/surefire-reports/*.xml'
+             archiveArtifacts ' /home/ubuntu/jenkins2/workspace/springpetclinic-daybuilds/target/*.jar'
+            
+            }
+        }
     }
 }
