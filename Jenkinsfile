@@ -14,7 +14,8 @@ pipeline{
         stage('post build'){
             steps{
               // junit '/springpetclinic-daybuilds/ws/target/surefire-reports/*.xml'
-             archiveArtifacts './target/*.jar'
+             archiveArtifacts 'target/*.jar'
+             sh "echo it should work now!"
           // /springpetclinic-daybuilds/ws/target/surefire-reports/
             
             }
