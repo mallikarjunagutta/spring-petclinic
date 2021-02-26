@@ -13,7 +13,7 @@ pipeline{
         }
         stage('post build'){
             steps{
-                junit 'springpetclinic-daybuilds/target/surefire-reports/*.xml'
+               // junit 'springpetclinic-daybuilds/target/surefire-reports/*.xml'
                 archiveArtifacts 'springpetclinic-daybuilds/target/*.jar'
             }
         }
