@@ -8,13 +8,13 @@ pipeline{
         }
         stage('build') {
             steps {
-                sh script: 'mvn clean package'
+                sh script: 'mvn compile'
             }
         }
         stage('post build'){
             steps{
                 junit 'springpetclinic-daybuilds/target/surefire-reports/*.xml'
-                archiveArtifacts 'springpetclinic-daybuilds/target/*.war'
+                //archiveArtifacts 'springpetclinic-daybuilds/target/*.jar'
             }
         }
     }
