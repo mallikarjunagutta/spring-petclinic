@@ -16,7 +16,7 @@ pipeline{
              junit 'target/surefire-reports/*.xml'
              archiveArtifacts 'target/*.jar'
              sh "echo it should work now!"
-          // /springpetclinic-daybuilds/ws/target/surefire-reports/
+          
             
             }
         }
